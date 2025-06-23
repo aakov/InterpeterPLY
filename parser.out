@@ -1,0 +1,1611 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    KOMENATRZ
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statements
+Rule 2     block -> LBRACE statements RBRACE
+Rule 3     statements -> statements statement
+Rule 4     statements -> statement
+Rule 5     statement -> CALKOWITA NAZWA SREDNIK
+Rule 6     statement -> CALKOWITA NAZWA PRZYPISZ expression SREDNIK
+Rule 7     statement -> NAZWA PRZYPISZ expression SREDNIK
+Rule 8     statement -> WYPISZ expression SREDNIK
+Rule 9     statement -> JEZELI LNAWIAS expression PNAWIAS block
+Rule 10    statement -> JEZELI LNAWIAS expression PNAWIAS block INACZEJ block
+Rule 11    expression -> expression PLUS expression
+Rule 12    expression -> expression MINUS expression
+Rule 13    expression -> expression RAZY expression
+Rule 14    expression -> expression DZIEL expression
+Rule 15    expression -> expression ROWNE expression
+Rule 16    expression -> expression ROZNE expression
+Rule 17    expression -> expression MNIEJSZE expression
+Rule 18    expression -> expression MNIEJSZE_ROWNE expression
+Rule 19    expression -> expression WIEKSZE expression
+Rule 20    expression -> expression WIEKSZE_ROWNE expression
+Rule 21    expression -> expression I expression
+Rule 22    expression -> expression LUB expression
+Rule 23    expression -> NEGACJA expression
+Rule 24    expression -> LNAWIAS expression PNAWIAS
+Rule 25    expression -> LICZBA
+Rule 26    expression -> NAZWA
+
+Terminals, with rules where they appear
+
+CALKOWITA            : 5 6
+DZIEL                : 14
+I                    : 21
+INACZEJ              : 10
+JEZELI               : 9 10
+KOMENATRZ            : 
+LBRACE               : 2
+LICZBA               : 25
+LNAWIAS              : 9 10 24
+LUB                  : 22
+MINUS                : 12
+MNIEJSZE             : 17
+MNIEJSZE_ROWNE       : 18
+NAZWA                : 5 6 7 26
+NEGACJA              : 23
+PLUS                 : 11
+PNAWIAS              : 9 10 24
+PRZYPISZ             : 6 7
+RAZY                 : 13
+RBRACE               : 2
+ROWNE                : 15
+ROZNE                : 16
+SREDNIK              : 5 6 7 8
+WIEKSZE              : 19
+WIEKSZE_ROWNE        : 20
+WYPISZ               : 8
+error                : 
+
+Nonterminals, with rules where they appear
+
+block                : 9 10 10
+expression           : 6 7 8 9 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 24
+program              : 0
+statement            : 3 4
+statements           : 1 2 3
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statements
+    (3) statements -> . statements statement
+    (4) statements -> . statement
+    (5) statement -> . CALKOWITA NAZWA SREDNIK
+    (6) statement -> . CALKOWITA NAZWA PRZYPISZ expression SREDNIK
+    (7) statement -> . NAZWA PRZYPISZ expression SREDNIK
+    (8) statement -> . WYPISZ expression SREDNIK
+    (9) statement -> . JEZELI LNAWIAS expression PNAWIAS block
+    (10) statement -> . JEZELI LNAWIAS expression PNAWIAS block INACZEJ block
+
+    CALKOWITA       shift and go to state 4
+    NAZWA           shift and go to state 5
+    WYPISZ          shift and go to state 6
+    JEZELI          shift and go to state 7
+
+    program                        shift and go to state 1
+    statements                     shift and go to state 2
+    statement                      shift and go to state 3
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statements .
+    (3) statements -> statements . statement
+    (5) statement -> . CALKOWITA NAZWA SREDNIK
+    (6) statement -> . CALKOWITA NAZWA PRZYPISZ expression SREDNIK
+    (7) statement -> . NAZWA PRZYPISZ expression SREDNIK
+    (8) statement -> . WYPISZ expression SREDNIK
+    (9) statement -> . JEZELI LNAWIAS expression PNAWIAS block
+    (10) statement -> . JEZELI LNAWIAS expression PNAWIAS block INACZEJ block
+
+    $end            reduce using rule 1 (program -> statements .)
+    CALKOWITA       shift and go to state 4
+    NAZWA           shift and go to state 5
+    WYPISZ          shift and go to state 6
+    JEZELI          shift and go to state 7
+
+    statement                      shift and go to state 8
+
+state 3
+
+    (4) statements -> statement .
+
+    CALKOWITA       reduce using rule 4 (statements -> statement .)
+    NAZWA           reduce using rule 4 (statements -> statement .)
+    WYPISZ          reduce using rule 4 (statements -> statement .)
+    JEZELI          reduce using rule 4 (statements -> statement .)
+    $end            reduce using rule 4 (statements -> statement .)
+    RBRACE          reduce using rule 4 (statements -> statement .)
+
+
+state 4
+
+    (5) statement -> CALKOWITA . NAZWA SREDNIK
+    (6) statement -> CALKOWITA . NAZWA PRZYPISZ expression SREDNIK
+
+    NAZWA           shift and go to state 9
+
+
+state 5
+
+    (7) statement -> NAZWA . PRZYPISZ expression SREDNIK
+
+    PRZYPISZ        shift and go to state 10
+
+
+state 6
+
+    (8) statement -> WYPISZ . expression SREDNIK
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 11
+
+state 7
+
+    (9) statement -> JEZELI . LNAWIAS expression PNAWIAS block
+    (10) statement -> JEZELI . LNAWIAS expression PNAWIAS block INACZEJ block
+
+    LNAWIAS         shift and go to state 16
+
+
+state 8
+
+    (3) statements -> statements statement .
+
+    CALKOWITA       reduce using rule 3 (statements -> statements statement .)
+    NAZWA           reduce using rule 3 (statements -> statements statement .)
+    WYPISZ          reduce using rule 3 (statements -> statements statement .)
+    JEZELI          reduce using rule 3 (statements -> statements statement .)
+    $end            reduce using rule 3 (statements -> statements statement .)
+    RBRACE          reduce using rule 3 (statements -> statements statement .)
+
+
+state 9
+
+    (5) statement -> CALKOWITA NAZWA . SREDNIK
+    (6) statement -> CALKOWITA NAZWA . PRZYPISZ expression SREDNIK
+
+    SREDNIK         shift and go to state 17
+    PRZYPISZ        shift and go to state 18
+
+
+state 10
+
+    (7) statement -> NAZWA PRZYPISZ . expression SREDNIK
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 19
+
+state 11
+
+    (8) statement -> WYPISZ expression . SREDNIK
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         shift and go to state 20
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+    ROWNE           shift and go to state 25
+    ROZNE           shift and go to state 26
+    MNIEJSZE        shift and go to state 27
+    MNIEJSZE_ROWNE  shift and go to state 28
+    WIEKSZE         shift and go to state 29
+    WIEKSZE_ROWNE   shift and go to state 30
+    I               shift and go to state 31
+    LUB             shift and go to state 32
+
+
+state 12
+
+    (23) expression -> NEGACJA . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 33
+
+state 13
+
+    (24) expression -> LNAWIAS . expression PNAWIAS
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 34
+
+state 14
+
+    (25) expression -> LICZBA .
+
+    SREDNIK         reduce using rule 25 (expression -> LICZBA .)
+    PLUS            reduce using rule 25 (expression -> LICZBA .)
+    MINUS           reduce using rule 25 (expression -> LICZBA .)
+    RAZY            reduce using rule 25 (expression -> LICZBA .)
+    DZIEL           reduce using rule 25 (expression -> LICZBA .)
+    ROWNE           reduce using rule 25 (expression -> LICZBA .)
+    ROZNE           reduce using rule 25 (expression -> LICZBA .)
+    MNIEJSZE        reduce using rule 25 (expression -> LICZBA .)
+    MNIEJSZE_ROWNE  reduce using rule 25 (expression -> LICZBA .)
+    WIEKSZE         reduce using rule 25 (expression -> LICZBA .)
+    WIEKSZE_ROWNE   reduce using rule 25 (expression -> LICZBA .)
+    I               reduce using rule 25 (expression -> LICZBA .)
+    LUB             reduce using rule 25 (expression -> LICZBA .)
+    PNAWIAS         reduce using rule 25 (expression -> LICZBA .)
+
+
+state 15
+
+    (26) expression -> NAZWA .
+
+    SREDNIK         reduce using rule 26 (expression -> NAZWA .)
+    PLUS            reduce using rule 26 (expression -> NAZWA .)
+    MINUS           reduce using rule 26 (expression -> NAZWA .)
+    RAZY            reduce using rule 26 (expression -> NAZWA .)
+    DZIEL           reduce using rule 26 (expression -> NAZWA .)
+    ROWNE           reduce using rule 26 (expression -> NAZWA .)
+    ROZNE           reduce using rule 26 (expression -> NAZWA .)
+    MNIEJSZE        reduce using rule 26 (expression -> NAZWA .)
+    MNIEJSZE_ROWNE  reduce using rule 26 (expression -> NAZWA .)
+    WIEKSZE         reduce using rule 26 (expression -> NAZWA .)
+    WIEKSZE_ROWNE   reduce using rule 26 (expression -> NAZWA .)
+    I               reduce using rule 26 (expression -> NAZWA .)
+    LUB             reduce using rule 26 (expression -> NAZWA .)
+    PNAWIAS         reduce using rule 26 (expression -> NAZWA .)
+
+
+state 16
+
+    (9) statement -> JEZELI LNAWIAS . expression PNAWIAS block
+    (10) statement -> JEZELI LNAWIAS . expression PNAWIAS block INACZEJ block
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 35
+
+state 17
+
+    (5) statement -> CALKOWITA NAZWA SREDNIK .
+
+    CALKOWITA       reduce using rule 5 (statement -> CALKOWITA NAZWA SREDNIK .)
+    NAZWA           reduce using rule 5 (statement -> CALKOWITA NAZWA SREDNIK .)
+    WYPISZ          reduce using rule 5 (statement -> CALKOWITA NAZWA SREDNIK .)
+    JEZELI          reduce using rule 5 (statement -> CALKOWITA NAZWA SREDNIK .)
+    $end            reduce using rule 5 (statement -> CALKOWITA NAZWA SREDNIK .)
+    RBRACE          reduce using rule 5 (statement -> CALKOWITA NAZWA SREDNIK .)
+
+
+state 18
+
+    (6) statement -> CALKOWITA NAZWA PRZYPISZ . expression SREDNIK
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 36
+
+state 19
+
+    (7) statement -> NAZWA PRZYPISZ expression . SREDNIK
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         shift and go to state 37
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+    ROWNE           shift and go to state 25
+    ROZNE           shift and go to state 26
+    MNIEJSZE        shift and go to state 27
+    MNIEJSZE_ROWNE  shift and go to state 28
+    WIEKSZE         shift and go to state 29
+    WIEKSZE_ROWNE   shift and go to state 30
+    I               shift and go to state 31
+    LUB             shift and go to state 32
+
+
+state 20
+
+    (8) statement -> WYPISZ expression SREDNIK .
+
+    CALKOWITA       reduce using rule 8 (statement -> WYPISZ expression SREDNIK .)
+    NAZWA           reduce using rule 8 (statement -> WYPISZ expression SREDNIK .)
+    WYPISZ          reduce using rule 8 (statement -> WYPISZ expression SREDNIK .)
+    JEZELI          reduce using rule 8 (statement -> WYPISZ expression SREDNIK .)
+    $end            reduce using rule 8 (statement -> WYPISZ expression SREDNIK .)
+    RBRACE          reduce using rule 8 (statement -> WYPISZ expression SREDNIK .)
+
+
+state 21
+
+    (11) expression -> expression PLUS . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 38
+
+state 22
+
+    (12) expression -> expression MINUS . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 39
+
+state 23
+
+    (13) expression -> expression RAZY . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 40
+
+state 24
+
+    (14) expression -> expression DZIEL . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 41
+
+state 25
+
+    (15) expression -> expression ROWNE . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 42
+
+state 26
+
+    (16) expression -> expression ROZNE . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 43
+
+state 27
+
+    (17) expression -> expression MNIEJSZE . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 44
+
+state 28
+
+    (18) expression -> expression MNIEJSZE_ROWNE . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 45
+
+state 29
+
+    (19) expression -> expression WIEKSZE . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 46
+
+state 30
+
+    (20) expression -> expression WIEKSZE_ROWNE . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 47
+
+state 31
+
+    (21) expression -> expression I . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 48
+
+state 32
+
+    (22) expression -> expression LUB . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression RAZY expression
+    (14) expression -> . expression DZIEL expression
+    (15) expression -> . expression ROWNE expression
+    (16) expression -> . expression ROZNE expression
+    (17) expression -> . expression MNIEJSZE expression
+    (18) expression -> . expression MNIEJSZE_ROWNE expression
+    (19) expression -> . expression WIEKSZE expression
+    (20) expression -> . expression WIEKSZE_ROWNE expression
+    (21) expression -> . expression I expression
+    (22) expression -> . expression LUB expression
+    (23) expression -> . NEGACJA expression
+    (24) expression -> . LNAWIAS expression PNAWIAS
+    (25) expression -> . LICZBA
+    (26) expression -> . NAZWA
+
+    NEGACJA         shift and go to state 12
+    LNAWIAS         shift and go to state 13
+    LICZBA          shift and go to state 14
+    NAZWA           shift and go to state 15
+
+    expression                     shift and go to state 49
+
+state 33
+
+    (23) expression -> NEGACJA expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         reduce using rule 23 (expression -> NEGACJA expression .)
+    PLUS            reduce using rule 23 (expression -> NEGACJA expression .)
+    MINUS           reduce using rule 23 (expression -> NEGACJA expression .)
+    RAZY            reduce using rule 23 (expression -> NEGACJA expression .)
+    DZIEL           reduce using rule 23 (expression -> NEGACJA expression .)
+    ROWNE           reduce using rule 23 (expression -> NEGACJA expression .)
+    ROZNE           reduce using rule 23 (expression -> NEGACJA expression .)
+    MNIEJSZE        reduce using rule 23 (expression -> NEGACJA expression .)
+    MNIEJSZE_ROWNE  reduce using rule 23 (expression -> NEGACJA expression .)
+    WIEKSZE         reduce using rule 23 (expression -> NEGACJA expression .)
+    WIEKSZE_ROWNE   reduce using rule 23 (expression -> NEGACJA expression .)
+    I               reduce using rule 23 (expression -> NEGACJA expression .)
+    LUB             reduce using rule 23 (expression -> NEGACJA expression .)
+    PNAWIAS         reduce using rule 23 (expression -> NEGACJA expression .)
+
+  ! PLUS            [ shift and go to state 21 ]
+  ! MINUS           [ shift and go to state 22 ]
+  ! RAZY            [ shift and go to state 23 ]
+  ! DZIEL           [ shift and go to state 24 ]
+  ! ROWNE           [ shift and go to state 25 ]
+  ! ROZNE           [ shift and go to state 26 ]
+  ! MNIEJSZE        [ shift and go to state 27 ]
+  ! MNIEJSZE_ROWNE  [ shift and go to state 28 ]
+  ! WIEKSZE         [ shift and go to state 29 ]
+  ! WIEKSZE_ROWNE   [ shift and go to state 30 ]
+  ! I               [ shift and go to state 31 ]
+  ! LUB             [ shift and go to state 32 ]
+
+
+state 34
+
+    (24) expression -> LNAWIAS expression . PNAWIAS
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    PNAWIAS         shift and go to state 50
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+    ROWNE           shift and go to state 25
+    ROZNE           shift and go to state 26
+    MNIEJSZE        shift and go to state 27
+    MNIEJSZE_ROWNE  shift and go to state 28
+    WIEKSZE         shift and go to state 29
+    WIEKSZE_ROWNE   shift and go to state 30
+    I               shift and go to state 31
+    LUB             shift and go to state 32
+
+
+state 35
+
+    (9) statement -> JEZELI LNAWIAS expression . PNAWIAS block
+    (10) statement -> JEZELI LNAWIAS expression . PNAWIAS block INACZEJ block
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    PNAWIAS         shift and go to state 51
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+    ROWNE           shift and go to state 25
+    ROZNE           shift and go to state 26
+    MNIEJSZE        shift and go to state 27
+    MNIEJSZE_ROWNE  shift and go to state 28
+    WIEKSZE         shift and go to state 29
+    WIEKSZE_ROWNE   shift and go to state 30
+    I               shift and go to state 31
+    LUB             shift and go to state 32
+
+
+state 36
+
+    (6) statement -> CALKOWITA NAZWA PRZYPISZ expression . SREDNIK
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         shift and go to state 52
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+    ROWNE           shift and go to state 25
+    ROZNE           shift and go to state 26
+    MNIEJSZE        shift and go to state 27
+    MNIEJSZE_ROWNE  shift and go to state 28
+    WIEKSZE         shift and go to state 29
+    WIEKSZE_ROWNE   shift and go to state 30
+    I               shift and go to state 31
+    LUB             shift and go to state 32
+
+
+state 37
+
+    (7) statement -> NAZWA PRZYPISZ expression SREDNIK .
+
+    CALKOWITA       reduce using rule 7 (statement -> NAZWA PRZYPISZ expression SREDNIK .)
+    NAZWA           reduce using rule 7 (statement -> NAZWA PRZYPISZ expression SREDNIK .)
+    WYPISZ          reduce using rule 7 (statement -> NAZWA PRZYPISZ expression SREDNIK .)
+    JEZELI          reduce using rule 7 (statement -> NAZWA PRZYPISZ expression SREDNIK .)
+    $end            reduce using rule 7 (statement -> NAZWA PRZYPISZ expression SREDNIK .)
+    RBRACE          reduce using rule 7 (statement -> NAZWA PRZYPISZ expression SREDNIK .)
+
+
+state 38
+
+    (11) expression -> expression PLUS expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         reduce using rule 11 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 11 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 11 (expression -> expression PLUS expression .)
+    ROWNE           reduce using rule 11 (expression -> expression PLUS expression .)
+    ROZNE           reduce using rule 11 (expression -> expression PLUS expression .)
+    MNIEJSZE        reduce using rule 11 (expression -> expression PLUS expression .)
+    MNIEJSZE_ROWNE  reduce using rule 11 (expression -> expression PLUS expression .)
+    WIEKSZE         reduce using rule 11 (expression -> expression PLUS expression .)
+    WIEKSZE_ROWNE   reduce using rule 11 (expression -> expression PLUS expression .)
+    I               reduce using rule 11 (expression -> expression PLUS expression .)
+    LUB             reduce using rule 11 (expression -> expression PLUS expression .)
+    PNAWIAS         reduce using rule 11 (expression -> expression PLUS expression .)
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+
+  ! RAZY            [ reduce using rule 11 (expression -> expression PLUS expression .) ]
+  ! DZIEL           [ reduce using rule 11 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 21 ]
+  ! MINUS           [ shift and go to state 22 ]
+  ! ROWNE           [ shift and go to state 25 ]
+  ! ROZNE           [ shift and go to state 26 ]
+  ! MNIEJSZE        [ shift and go to state 27 ]
+  ! MNIEJSZE_ROWNE  [ shift and go to state 28 ]
+  ! WIEKSZE         [ shift and go to state 29 ]
+  ! WIEKSZE_ROWNE   [ shift and go to state 30 ]
+  ! I               [ shift and go to state 31 ]
+  ! LUB             [ shift and go to state 32 ]
+
+
+state 39
+
+    (12) expression -> expression MINUS expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         reduce using rule 12 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 12 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 12 (expression -> expression MINUS expression .)
+    ROWNE           reduce using rule 12 (expression -> expression MINUS expression .)
+    ROZNE           reduce using rule 12 (expression -> expression MINUS expression .)
+    MNIEJSZE        reduce using rule 12 (expression -> expression MINUS expression .)
+    MNIEJSZE_ROWNE  reduce using rule 12 (expression -> expression MINUS expression .)
+    WIEKSZE         reduce using rule 12 (expression -> expression MINUS expression .)
+    WIEKSZE_ROWNE   reduce using rule 12 (expression -> expression MINUS expression .)
+    I               reduce using rule 12 (expression -> expression MINUS expression .)
+    LUB             reduce using rule 12 (expression -> expression MINUS expression .)
+    PNAWIAS         reduce using rule 12 (expression -> expression MINUS expression .)
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+
+  ! RAZY            [ reduce using rule 12 (expression -> expression MINUS expression .) ]
+  ! DZIEL           [ reduce using rule 12 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 21 ]
+  ! MINUS           [ shift and go to state 22 ]
+  ! ROWNE           [ shift and go to state 25 ]
+  ! ROZNE           [ shift and go to state 26 ]
+  ! MNIEJSZE        [ shift and go to state 27 ]
+  ! MNIEJSZE_ROWNE  [ shift and go to state 28 ]
+  ! WIEKSZE         [ shift and go to state 29 ]
+  ! WIEKSZE_ROWNE   [ shift and go to state 30 ]
+  ! I               [ shift and go to state 31 ]
+  ! LUB             [ shift and go to state 32 ]
+
+
+state 40
+
+    (13) expression -> expression RAZY expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         reduce using rule 13 (expression -> expression RAZY expression .)
+    PLUS            reduce using rule 13 (expression -> expression RAZY expression .)
+    MINUS           reduce using rule 13 (expression -> expression RAZY expression .)
+    RAZY            reduce using rule 13 (expression -> expression RAZY expression .)
+    DZIEL           reduce using rule 13 (expression -> expression RAZY expression .)
+    ROWNE           reduce using rule 13 (expression -> expression RAZY expression .)
+    ROZNE           reduce using rule 13 (expression -> expression RAZY expression .)
+    MNIEJSZE        reduce using rule 13 (expression -> expression RAZY expression .)
+    MNIEJSZE_ROWNE  reduce using rule 13 (expression -> expression RAZY expression .)
+    WIEKSZE         reduce using rule 13 (expression -> expression RAZY expression .)
+    WIEKSZE_ROWNE   reduce using rule 13 (expression -> expression RAZY expression .)
+    I               reduce using rule 13 (expression -> expression RAZY expression .)
+    LUB             reduce using rule 13 (expression -> expression RAZY expression .)
+    PNAWIAS         reduce using rule 13 (expression -> expression RAZY expression .)
+
+  ! PLUS            [ shift and go to state 21 ]
+  ! MINUS           [ shift and go to state 22 ]
+  ! RAZY            [ shift and go to state 23 ]
+  ! DZIEL           [ shift and go to state 24 ]
+  ! ROWNE           [ shift and go to state 25 ]
+  ! ROZNE           [ shift and go to state 26 ]
+  ! MNIEJSZE        [ shift and go to state 27 ]
+  ! MNIEJSZE_ROWNE  [ shift and go to state 28 ]
+  ! WIEKSZE         [ shift and go to state 29 ]
+  ! WIEKSZE_ROWNE   [ shift and go to state 30 ]
+  ! I               [ shift and go to state 31 ]
+  ! LUB             [ shift and go to state 32 ]
+
+
+state 41
+
+    (14) expression -> expression DZIEL expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         reduce using rule 14 (expression -> expression DZIEL expression .)
+    PLUS            reduce using rule 14 (expression -> expression DZIEL expression .)
+    MINUS           reduce using rule 14 (expression -> expression DZIEL expression .)
+    RAZY            reduce using rule 14 (expression -> expression DZIEL expression .)
+    DZIEL           reduce using rule 14 (expression -> expression DZIEL expression .)
+    ROWNE           reduce using rule 14 (expression -> expression DZIEL expression .)
+    ROZNE           reduce using rule 14 (expression -> expression DZIEL expression .)
+    MNIEJSZE        reduce using rule 14 (expression -> expression DZIEL expression .)
+    MNIEJSZE_ROWNE  reduce using rule 14 (expression -> expression DZIEL expression .)
+    WIEKSZE         reduce using rule 14 (expression -> expression DZIEL expression .)
+    WIEKSZE_ROWNE   reduce using rule 14 (expression -> expression DZIEL expression .)
+    I               reduce using rule 14 (expression -> expression DZIEL expression .)
+    LUB             reduce using rule 14 (expression -> expression DZIEL expression .)
+    PNAWIAS         reduce using rule 14 (expression -> expression DZIEL expression .)
+
+  ! PLUS            [ shift and go to state 21 ]
+  ! MINUS           [ shift and go to state 22 ]
+  ! RAZY            [ shift and go to state 23 ]
+  ! DZIEL           [ shift and go to state 24 ]
+  ! ROWNE           [ shift and go to state 25 ]
+  ! ROZNE           [ shift and go to state 26 ]
+  ! MNIEJSZE        [ shift and go to state 27 ]
+  ! MNIEJSZE_ROWNE  [ shift and go to state 28 ]
+  ! WIEKSZE         [ shift and go to state 29 ]
+  ! WIEKSZE_ROWNE   [ shift and go to state 30 ]
+  ! I               [ shift and go to state 31 ]
+  ! LUB             [ shift and go to state 32 ]
+
+
+state 42
+
+    (15) expression -> expression ROWNE expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         reduce using rule 15 (expression -> expression ROWNE expression .)
+    ROWNE           reduce using rule 15 (expression -> expression ROWNE expression .)
+    ROZNE           reduce using rule 15 (expression -> expression ROWNE expression .)
+    I               reduce using rule 15 (expression -> expression ROWNE expression .)
+    LUB             reduce using rule 15 (expression -> expression ROWNE expression .)
+    PNAWIAS         reduce using rule 15 (expression -> expression ROWNE expression .)
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+    MNIEJSZE        shift and go to state 27
+    MNIEJSZE_ROWNE  shift and go to state 28
+    WIEKSZE         shift and go to state 29
+    WIEKSZE_ROWNE   shift and go to state 30
+
+  ! PLUS            [ reduce using rule 15 (expression -> expression ROWNE expression .) ]
+  ! MINUS           [ reduce using rule 15 (expression -> expression ROWNE expression .) ]
+  ! RAZY            [ reduce using rule 15 (expression -> expression ROWNE expression .) ]
+  ! DZIEL           [ reduce using rule 15 (expression -> expression ROWNE expression .) ]
+  ! MNIEJSZE        [ reduce using rule 15 (expression -> expression ROWNE expression .) ]
+  ! MNIEJSZE_ROWNE  [ reduce using rule 15 (expression -> expression ROWNE expression .) ]
+  ! WIEKSZE         [ reduce using rule 15 (expression -> expression ROWNE expression .) ]
+  ! WIEKSZE_ROWNE   [ reduce using rule 15 (expression -> expression ROWNE expression .) ]
+  ! ROWNE           [ shift and go to state 25 ]
+  ! ROZNE           [ shift and go to state 26 ]
+  ! I               [ shift and go to state 31 ]
+  ! LUB             [ shift and go to state 32 ]
+
+
+state 43
+
+    (16) expression -> expression ROZNE expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         reduce using rule 16 (expression -> expression ROZNE expression .)
+    ROWNE           reduce using rule 16 (expression -> expression ROZNE expression .)
+    ROZNE           reduce using rule 16 (expression -> expression ROZNE expression .)
+    I               reduce using rule 16 (expression -> expression ROZNE expression .)
+    LUB             reduce using rule 16 (expression -> expression ROZNE expression .)
+    PNAWIAS         reduce using rule 16 (expression -> expression ROZNE expression .)
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+    MNIEJSZE        shift and go to state 27
+    MNIEJSZE_ROWNE  shift and go to state 28
+    WIEKSZE         shift and go to state 29
+    WIEKSZE_ROWNE   shift and go to state 30
+
+  ! PLUS            [ reduce using rule 16 (expression -> expression ROZNE expression .) ]
+  ! MINUS           [ reduce using rule 16 (expression -> expression ROZNE expression .) ]
+  ! RAZY            [ reduce using rule 16 (expression -> expression ROZNE expression .) ]
+  ! DZIEL           [ reduce using rule 16 (expression -> expression ROZNE expression .) ]
+  ! MNIEJSZE        [ reduce using rule 16 (expression -> expression ROZNE expression .) ]
+  ! MNIEJSZE_ROWNE  [ reduce using rule 16 (expression -> expression ROZNE expression .) ]
+  ! WIEKSZE         [ reduce using rule 16 (expression -> expression ROZNE expression .) ]
+  ! WIEKSZE_ROWNE   [ reduce using rule 16 (expression -> expression ROZNE expression .) ]
+  ! ROWNE           [ shift and go to state 25 ]
+  ! ROZNE           [ shift and go to state 26 ]
+  ! I               [ shift and go to state 31 ]
+  ! LUB             [ shift and go to state 32 ]
+
+
+state 44
+
+    (17) expression -> expression MNIEJSZE expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         reduce using rule 17 (expression -> expression MNIEJSZE expression .)
+    ROWNE           reduce using rule 17 (expression -> expression MNIEJSZE expression .)
+    ROZNE           reduce using rule 17 (expression -> expression MNIEJSZE expression .)
+    MNIEJSZE        reduce using rule 17 (expression -> expression MNIEJSZE expression .)
+    MNIEJSZE_ROWNE  reduce using rule 17 (expression -> expression MNIEJSZE expression .)
+    WIEKSZE         reduce using rule 17 (expression -> expression MNIEJSZE expression .)
+    WIEKSZE_ROWNE   reduce using rule 17 (expression -> expression MNIEJSZE expression .)
+    I               reduce using rule 17 (expression -> expression MNIEJSZE expression .)
+    LUB             reduce using rule 17 (expression -> expression MNIEJSZE expression .)
+    PNAWIAS         reduce using rule 17 (expression -> expression MNIEJSZE expression .)
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+
+  ! PLUS            [ reduce using rule 17 (expression -> expression MNIEJSZE expression .) ]
+  ! MINUS           [ reduce using rule 17 (expression -> expression MNIEJSZE expression .) ]
+  ! RAZY            [ reduce using rule 17 (expression -> expression MNIEJSZE expression .) ]
+  ! DZIEL           [ reduce using rule 17 (expression -> expression MNIEJSZE expression .) ]
+  ! ROWNE           [ shift and go to state 25 ]
+  ! ROZNE           [ shift and go to state 26 ]
+  ! MNIEJSZE        [ shift and go to state 27 ]
+  ! MNIEJSZE_ROWNE  [ shift and go to state 28 ]
+  ! WIEKSZE         [ shift and go to state 29 ]
+  ! WIEKSZE_ROWNE   [ shift and go to state 30 ]
+  ! I               [ shift and go to state 31 ]
+  ! LUB             [ shift and go to state 32 ]
+
+
+state 45
+
+    (18) expression -> expression MNIEJSZE_ROWNE expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .)
+    ROWNE           reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .)
+    ROZNE           reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .)
+    MNIEJSZE        reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .)
+    MNIEJSZE_ROWNE  reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .)
+    WIEKSZE         reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .)
+    WIEKSZE_ROWNE   reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .)
+    I               reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .)
+    LUB             reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .)
+    PNAWIAS         reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .)
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+
+  ! PLUS            [ reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .) ]
+  ! MINUS           [ reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .) ]
+  ! RAZY            [ reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .) ]
+  ! DZIEL           [ reduce using rule 18 (expression -> expression MNIEJSZE_ROWNE expression .) ]
+  ! ROWNE           [ shift and go to state 25 ]
+  ! ROZNE           [ shift and go to state 26 ]
+  ! MNIEJSZE        [ shift and go to state 27 ]
+  ! MNIEJSZE_ROWNE  [ shift and go to state 28 ]
+  ! WIEKSZE         [ shift and go to state 29 ]
+  ! WIEKSZE_ROWNE   [ shift and go to state 30 ]
+  ! I               [ shift and go to state 31 ]
+  ! LUB             [ shift and go to state 32 ]
+
+
+state 46
+
+    (19) expression -> expression WIEKSZE expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         reduce using rule 19 (expression -> expression WIEKSZE expression .)
+    ROWNE           reduce using rule 19 (expression -> expression WIEKSZE expression .)
+    ROZNE           reduce using rule 19 (expression -> expression WIEKSZE expression .)
+    MNIEJSZE        reduce using rule 19 (expression -> expression WIEKSZE expression .)
+    MNIEJSZE_ROWNE  reduce using rule 19 (expression -> expression WIEKSZE expression .)
+    WIEKSZE         reduce using rule 19 (expression -> expression WIEKSZE expression .)
+    WIEKSZE_ROWNE   reduce using rule 19 (expression -> expression WIEKSZE expression .)
+    I               reduce using rule 19 (expression -> expression WIEKSZE expression .)
+    LUB             reduce using rule 19 (expression -> expression WIEKSZE expression .)
+    PNAWIAS         reduce using rule 19 (expression -> expression WIEKSZE expression .)
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+
+  ! PLUS            [ reduce using rule 19 (expression -> expression WIEKSZE expression .) ]
+  ! MINUS           [ reduce using rule 19 (expression -> expression WIEKSZE expression .) ]
+  ! RAZY            [ reduce using rule 19 (expression -> expression WIEKSZE expression .) ]
+  ! DZIEL           [ reduce using rule 19 (expression -> expression WIEKSZE expression .) ]
+  ! ROWNE           [ shift and go to state 25 ]
+  ! ROZNE           [ shift and go to state 26 ]
+  ! MNIEJSZE        [ shift and go to state 27 ]
+  ! MNIEJSZE_ROWNE  [ shift and go to state 28 ]
+  ! WIEKSZE         [ shift and go to state 29 ]
+  ! WIEKSZE_ROWNE   [ shift and go to state 30 ]
+  ! I               [ shift and go to state 31 ]
+  ! LUB             [ shift and go to state 32 ]
+
+
+state 47
+
+    (20) expression -> expression WIEKSZE_ROWNE expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .)
+    ROWNE           reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .)
+    ROZNE           reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .)
+    MNIEJSZE        reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .)
+    MNIEJSZE_ROWNE  reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .)
+    WIEKSZE         reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .)
+    WIEKSZE_ROWNE   reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .)
+    I               reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .)
+    LUB             reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .)
+    PNAWIAS         reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .)
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+
+  ! PLUS            [ reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .) ]
+  ! MINUS           [ reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .) ]
+  ! RAZY            [ reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .) ]
+  ! DZIEL           [ reduce using rule 20 (expression -> expression WIEKSZE_ROWNE expression .) ]
+  ! ROWNE           [ shift and go to state 25 ]
+  ! ROZNE           [ shift and go to state 26 ]
+  ! MNIEJSZE        [ shift and go to state 27 ]
+  ! MNIEJSZE_ROWNE  [ shift and go to state 28 ]
+  ! WIEKSZE         [ shift and go to state 29 ]
+  ! WIEKSZE_ROWNE   [ shift and go to state 30 ]
+  ! I               [ shift and go to state 31 ]
+  ! LUB             [ shift and go to state 32 ]
+
+
+state 48
+
+    (21) expression -> expression I expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         reduce using rule 21 (expression -> expression I expression .)
+    I               reduce using rule 21 (expression -> expression I expression .)
+    LUB             reduce using rule 21 (expression -> expression I expression .)
+    PNAWIAS         reduce using rule 21 (expression -> expression I expression .)
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+    ROWNE           shift and go to state 25
+    ROZNE           shift and go to state 26
+    MNIEJSZE        shift and go to state 27
+    MNIEJSZE_ROWNE  shift and go to state 28
+    WIEKSZE         shift and go to state 29
+    WIEKSZE_ROWNE   shift and go to state 30
+
+  ! PLUS            [ reduce using rule 21 (expression -> expression I expression .) ]
+  ! MINUS           [ reduce using rule 21 (expression -> expression I expression .) ]
+  ! RAZY            [ reduce using rule 21 (expression -> expression I expression .) ]
+  ! DZIEL           [ reduce using rule 21 (expression -> expression I expression .) ]
+  ! ROWNE           [ reduce using rule 21 (expression -> expression I expression .) ]
+  ! ROZNE           [ reduce using rule 21 (expression -> expression I expression .) ]
+  ! MNIEJSZE        [ reduce using rule 21 (expression -> expression I expression .) ]
+  ! MNIEJSZE_ROWNE  [ reduce using rule 21 (expression -> expression I expression .) ]
+  ! WIEKSZE         [ reduce using rule 21 (expression -> expression I expression .) ]
+  ! WIEKSZE_ROWNE   [ reduce using rule 21 (expression -> expression I expression .) ]
+  ! I               [ shift and go to state 31 ]
+  ! LUB             [ shift and go to state 32 ]
+
+
+state 49
+
+    (22) expression -> expression LUB expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . RAZY expression
+    (14) expression -> expression . DZIEL expression
+    (15) expression -> expression . ROWNE expression
+    (16) expression -> expression . ROZNE expression
+    (17) expression -> expression . MNIEJSZE expression
+    (18) expression -> expression . MNIEJSZE_ROWNE expression
+    (19) expression -> expression . WIEKSZE expression
+    (20) expression -> expression . WIEKSZE_ROWNE expression
+    (21) expression -> expression . I expression
+    (22) expression -> expression . LUB expression
+
+    SREDNIK         reduce using rule 22 (expression -> expression LUB expression .)
+    LUB             reduce using rule 22 (expression -> expression LUB expression .)
+    PNAWIAS         reduce using rule 22 (expression -> expression LUB expression .)
+    PLUS            shift and go to state 21
+    MINUS           shift and go to state 22
+    RAZY            shift and go to state 23
+    DZIEL           shift and go to state 24
+    ROWNE           shift and go to state 25
+    ROZNE           shift and go to state 26
+    MNIEJSZE        shift and go to state 27
+    MNIEJSZE_ROWNE  shift and go to state 28
+    WIEKSZE         shift and go to state 29
+    WIEKSZE_ROWNE   shift and go to state 30
+    I               shift and go to state 31
+
+  ! PLUS            [ reduce using rule 22 (expression -> expression LUB expression .) ]
+  ! MINUS           [ reduce using rule 22 (expression -> expression LUB expression .) ]
+  ! RAZY            [ reduce using rule 22 (expression -> expression LUB expression .) ]
+  ! DZIEL           [ reduce using rule 22 (expression -> expression LUB expression .) ]
+  ! ROWNE           [ reduce using rule 22 (expression -> expression LUB expression .) ]
+  ! ROZNE           [ reduce using rule 22 (expression -> expression LUB expression .) ]
+  ! MNIEJSZE        [ reduce using rule 22 (expression -> expression LUB expression .) ]
+  ! MNIEJSZE_ROWNE  [ reduce using rule 22 (expression -> expression LUB expression .) ]
+  ! WIEKSZE         [ reduce using rule 22 (expression -> expression LUB expression .) ]
+  ! WIEKSZE_ROWNE   [ reduce using rule 22 (expression -> expression LUB expression .) ]
+  ! I               [ reduce using rule 22 (expression -> expression LUB expression .) ]
+  ! LUB             [ shift and go to state 32 ]
+
+
+state 50
+
+    (24) expression -> LNAWIAS expression PNAWIAS .
+
+    SREDNIK         reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+    PLUS            reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+    MINUS           reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+    RAZY            reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+    DZIEL           reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+    ROWNE           reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+    ROZNE           reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+    MNIEJSZE        reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+    MNIEJSZE_ROWNE  reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+    WIEKSZE         reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+    WIEKSZE_ROWNE   reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+    I               reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+    LUB             reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+    PNAWIAS         reduce using rule 24 (expression -> LNAWIAS expression PNAWIAS .)
+
+
+state 51
+
+    (9) statement -> JEZELI LNAWIAS expression PNAWIAS . block
+    (10) statement -> JEZELI LNAWIAS expression PNAWIAS . block INACZEJ block
+    (2) block -> . LBRACE statements RBRACE
+
+    LBRACE          shift and go to state 54
+
+    block                          shift and go to state 53
+
+state 52
+
+    (6) statement -> CALKOWITA NAZWA PRZYPISZ expression SREDNIK .
+
+    CALKOWITA       reduce using rule 6 (statement -> CALKOWITA NAZWA PRZYPISZ expression SREDNIK .)
+    NAZWA           reduce using rule 6 (statement -> CALKOWITA NAZWA PRZYPISZ expression SREDNIK .)
+    WYPISZ          reduce using rule 6 (statement -> CALKOWITA NAZWA PRZYPISZ expression SREDNIK .)
+    JEZELI          reduce using rule 6 (statement -> CALKOWITA NAZWA PRZYPISZ expression SREDNIK .)
+    $end            reduce using rule 6 (statement -> CALKOWITA NAZWA PRZYPISZ expression SREDNIK .)
+    RBRACE          reduce using rule 6 (statement -> CALKOWITA NAZWA PRZYPISZ expression SREDNIK .)
+
+
+state 53
+
+    (9) statement -> JEZELI LNAWIAS expression PNAWIAS block .
+    (10) statement -> JEZELI LNAWIAS expression PNAWIAS block . INACZEJ block
+
+    CALKOWITA       reduce using rule 9 (statement -> JEZELI LNAWIAS expression PNAWIAS block .)
+    NAZWA           reduce using rule 9 (statement -> JEZELI LNAWIAS expression PNAWIAS block .)
+    WYPISZ          reduce using rule 9 (statement -> JEZELI LNAWIAS expression PNAWIAS block .)
+    JEZELI          reduce using rule 9 (statement -> JEZELI LNAWIAS expression PNAWIAS block .)
+    $end            reduce using rule 9 (statement -> JEZELI LNAWIAS expression PNAWIAS block .)
+    RBRACE          reduce using rule 9 (statement -> JEZELI LNAWIAS expression PNAWIAS block .)
+    INACZEJ         shift and go to state 55
+
+
+state 54
+
+    (2) block -> LBRACE . statements RBRACE
+    (3) statements -> . statements statement
+    (4) statements -> . statement
+    (5) statement -> . CALKOWITA NAZWA SREDNIK
+    (6) statement -> . CALKOWITA NAZWA PRZYPISZ expression SREDNIK
+    (7) statement -> . NAZWA PRZYPISZ expression SREDNIK
+    (8) statement -> . WYPISZ expression SREDNIK
+    (9) statement -> . JEZELI LNAWIAS expression PNAWIAS block
+    (10) statement -> . JEZELI LNAWIAS expression PNAWIAS block INACZEJ block
+
+    CALKOWITA       shift and go to state 4
+    NAZWA           shift and go to state 5
+    WYPISZ          shift and go to state 6
+    JEZELI          shift and go to state 7
+
+    statements                     shift and go to state 56
+    statement                      shift and go to state 3
+
+state 55
+
+    (10) statement -> JEZELI LNAWIAS expression PNAWIAS block INACZEJ . block
+    (2) block -> . LBRACE statements RBRACE
+
+    LBRACE          shift and go to state 54
+
+    block                          shift and go to state 57
+
+state 56
+
+    (2) block -> LBRACE statements . RBRACE
+    (3) statements -> statements . statement
+    (5) statement -> . CALKOWITA NAZWA SREDNIK
+    (6) statement -> . CALKOWITA NAZWA PRZYPISZ expression SREDNIK
+    (7) statement -> . NAZWA PRZYPISZ expression SREDNIK
+    (8) statement -> . WYPISZ expression SREDNIK
+    (9) statement -> . JEZELI LNAWIAS expression PNAWIAS block
+    (10) statement -> . JEZELI LNAWIAS expression PNAWIAS block INACZEJ block
+
+    RBRACE          shift and go to state 58
+    CALKOWITA       shift and go to state 4
+    NAZWA           shift and go to state 5
+    WYPISZ          shift and go to state 6
+    JEZELI          shift and go to state 7
+
+    statement                      shift and go to state 8
+
+state 57
+
+    (10) statement -> JEZELI LNAWIAS expression PNAWIAS block INACZEJ block .
+
+    CALKOWITA       reduce using rule 10 (statement -> JEZELI LNAWIAS expression PNAWIAS block INACZEJ block .)
+    NAZWA           reduce using rule 10 (statement -> JEZELI LNAWIAS expression PNAWIAS block INACZEJ block .)
+    WYPISZ          reduce using rule 10 (statement -> JEZELI LNAWIAS expression PNAWIAS block INACZEJ block .)
+    JEZELI          reduce using rule 10 (statement -> JEZELI LNAWIAS expression PNAWIAS block INACZEJ block .)
+    $end            reduce using rule 10 (statement -> JEZELI LNAWIAS expression PNAWIAS block INACZEJ block .)
+    RBRACE          reduce using rule 10 (statement -> JEZELI LNAWIAS expression PNAWIAS block INACZEJ block .)
+
+
+state 58
+
+    (2) block -> LBRACE statements RBRACE .
+
+    INACZEJ         reduce using rule 2 (block -> LBRACE statements RBRACE .)
+    CALKOWITA       reduce using rule 2 (block -> LBRACE statements RBRACE .)
+    NAZWA           reduce using rule 2 (block -> LBRACE statements RBRACE .)
+    WYPISZ          reduce using rule 2 (block -> LBRACE statements RBRACE .)
+    JEZELI          reduce using rule 2 (block -> LBRACE statements RBRACE .)
+    $end            reduce using rule 2 (block -> LBRACE statements RBRACE .)
+    RBRACE          reduce using rule 2 (block -> LBRACE statements RBRACE .)
+

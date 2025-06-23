@@ -1,0 +1,64 @@
+// Test 1 — Podstawowe operacje i warunki
+całkowita x = 10;
+całkowita y = 5;
+
+jeżeli (x > y _i y != 0) {
+    wypisz x;
+}
+
+jeżeli (x < y _lub y == 5) {
+    wypisz y;
+}
+
+// Test 2 — Negacja i else
+całkowita a = 3;
+całkowita b = 3;
+
+jeżeli (_nie(a == b)) {
+    wypisz 0;
+} inaczej {
+    wypisz 1;
+}
+
+// Test 3 — Łączenie warunków z negacją
+całkowita a2 = 4;
+całkowita b2 = 7;
+
+jeżeli ((a2 < 5 _i _nie(b2 < 5)) _lub a2 == 10) {
+    wypisz 123;
+}
+
+// Test 4 — Przypisania i wyrażenia arytmetyczne
+całkowita wynik;
+
+wynik = 5 + 3 * 2;
+wypisz wynik;
+
+wynik = (10 - 2) / 4;
+wypisz wynik;
+
+// Test 5 — Zagnieżdżone instrukcje if i else
+całkowita x2 = 7;
+
+jeżeli (x2 > 5) {
+    jeżeli (x2 < 10) {
+        wypisz 1;
+    } inaczej {
+        wypisz 2;
+    }
+} inaczej {
+    wypisz 3;
+}
+
+// Test 6 — Użycie zmiennych w warunkach
+całkowita a3 = 1;
+całkowita b3 = 0;
+
+jeżeli (a3 == 1 _i b3 == 0) {
+    wypisz 100;
+}
+
+// Test 7 — Kilka wypiszów
+wypisz 5;
+wypisz 10 + 2;
+wypisz 3 _lub 0;
