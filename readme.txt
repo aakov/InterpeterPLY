@@ -1,10 +1,13 @@
 # Interpreter project made with PLY in Python
+
 An interpreter for my custom small programing languade which has instructions in Polish as well as a few other quirks
 
 ## Run
+
 Use it by running a main.py file or a run.bat script
 
 ## Features
+
 Current capabilities:
 - All keywords are in Polsih
 - Tokenization via PLY’s `lex` module
@@ -19,6 +22,7 @@ Current capabilities:
 - Comments
 
 ## Example
+
 Small example of how the language looks. More in program.txt
 
 całkowita x = 10;
@@ -31,6 +35,7 @@ jeżeli (x > y _i y != 0) {
 jeżeli (x < y _lub y == 5) {
     wypisz y;
 }
+
 
 
 
