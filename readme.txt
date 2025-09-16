@@ -25,6 +25,7 @@ Current capabilities:
 
 Small example of how the language looks. More in program.txt
 
+```text
 całkowita x = 10;
 całkowita y = 5;
 
@@ -35,6 +36,7 @@ jeżeli (x > y _i y != 0) {
 jeżeli (x < y _lub y == 5) {
     wypisz y;
 }
+```
 
 
 
