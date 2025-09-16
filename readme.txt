@@ -2,12 +2,6 @@
 
 An interpreter for my custom small programming language which has instructions in Polish as well as a few other quirks.
 
-## Run
-
-You can run the interpreter in two ways:
-- Execute the `main.py` file directly  
-- Use the provided `run.bat` script  
-
 ## Features
 
 Current capabilities:
@@ -39,4 +33,11 @@ jeżeli (x > y _i y != 0) {
 jeżeli (x < y _lub y == 5) {
     wypisz y;
 }
--
+```
+
+## Run
+
+You can run the interpreter in two ways:
+- Execute the `main.py` file directly  
+- Use the provided `run.bat` script  -
+
