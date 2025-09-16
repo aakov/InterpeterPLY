@@ -18,7 +18,7 @@ Current capabilities:
 - Basic error reporting with token position info
 - Comments
 
-##Example
+## Example
 Small example of how the language looks. More in program.txt
 
 całkowita x = 10;
@@ -31,5 +31,6 @@ jeżeli (x > y _i y != 0) {
 jeżeli (x < y _lub y == 5) {
     wypisz y;
 }
+
 
 
